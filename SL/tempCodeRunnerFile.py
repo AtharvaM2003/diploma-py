@@ -1,22 +1,20 @@
-# Using a Python dictionary to act as an adjacency list
-graph = {
-  '5' : ['3','7'],
-  '3' : ['2', '4'],
-  '7' : ['8'],
-  '2' : [],
-  '4' : ['8'],
-  '8' : []
-}
+# Selection sort in Python
+# time complexity O(n*n)
+#sorting by finding min_index
+def selectionSort(array, size):
+	
+	for ind in range(size):
+		min_index = ind
 
-visited = set() # Set to keep track of visited nodes of graph.
+		for j in range(ind + 1, size):
+			# select the minimum element in every iteration
+			if array[j] < array[min_index]:
+				min_index = j
+		# swapping the elements to sort the array
+		(array[ind], array[min_index]) = (array[min_index], array[ind])
 
-def dfs(visited, graph, node):  #function for dfs 
-    if node not in visited:
-        print (node)
-        visited.add(node)
-        for neighbour in graph[node]:
-            dfs(visited, graph, neighbour)
-
-# Driver Code
-print("Following is the Depth-First Search")
-dfs(visited, graph, '5')
+arr = [-2, 45, 0, 11, -9,88,-97,-202,747]
+size = len(arr)
+selectionSort(arr, size)
+print('The array after sorting in Ascending Order by selection sort is:')
+print(arr)

@@ -65,3 +65,23 @@ def get_neighbors(v):
         return Graph_nodes[v]
     else:
         return None
+def heuristic(n):
+    H_dist = {
+    'A': 11,
+    'B': 6,
+    'C': 99,
+    'D': 1,
+    'E': 7,
+    'G': 0,
+}
+    return H_dist[n]
+#Describe your graph here
+Graph_nodes = {
+'A': [('B', 2), ('E', 3)],
+'B': [('A', 2), ('C', 1), ('G', 9)],
+'C': [('B', 1)],
+'D': [('E', 6), ('G', 1)],
+'E': [('A', 3), ('D', 6)],
+'G': [('B', 9), ('D', 1)]
+}
+aStarAlgo('A', 'G')
